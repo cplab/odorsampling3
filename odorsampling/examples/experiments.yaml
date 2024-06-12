@@ -1,0 +1,147 @@
+# NOTE: DO NOT EDIT THIS FIELD.
+functions:
+  # These are the functions that can be used in the below experiments.
+  #  Default args are used when no args are specified in the experiments.
+  psi_bar_saturation:
+    default_args: []
+    default_kwargs:
+      fixed: False
+      aff_sd: 
+        - .5
+        - 1.5
+      eff_sd: 
+        - 0.05
+        - 1.0
+      numRecs: 30
+      c: 1
+      purpose: "standard"
+      qspaces: [4,10,30]
+      dim: 2
+      graph: True
+      
+  psi_bar_saturation_dim:
+    default_args: []
+    default_kwargs:
+      dims:
+        - 3
+        - 4
+      fixed: False
+      aff_sd: 
+        - .5
+        - 1.5
+      eff_sd: 
+        - 0.05
+        - 1.0
+      numRecs: 30
+      c: 1
+      graph: True
+  occ_vs_loc:
+    default_args: []
+    default_kwargs:
+      affList:
+        - 2
+        - 1.5
+        - 1
+        - .5
+  eff_vs_loc:
+    default_args: []
+    default_kwargs:
+      effList:
+        - 3
+        - 2
+        - 1
+        - .5
+        - .1
+  eff_analysis:
+    default_args: []
+    default_kwargs:
+      effSD:
+        - .5
+        - 1.0
+      affSD: 
+        - 2
+        - 2
+      qspace:
+        - 0
+        - 4
+      fixed: True
+  allGraphsFromExcel:
+    default_args: []
+    default_kwargs:
+      aff_sd: 
+        - .5
+        - 1.5
+      eff_sd:
+        - 0.05
+        - 1.0
+      numRecs: 30
+      c: 1
+      dim: 2
+      qspaces: [4,10,30]
+      purpose: "standard"
+      rep: 2
+# END NOTE.
+
+# These modify the default config values for the below experiments.
+# The order of priority for these configurations from lowest to highest is:
+# Default function values < YAML Config values < Experimental values < CMD line values
+# Case insensitive
+parameters:
+  # Remember! Exponential values require a period. If this is forgotten, the program's behavior may be undefined. (Types are not checked)
+  odor_concentration: null
+  peak_affinity: null
+  min_affinity: null
+  hill_coefficient: null
+  odor_repetitions: null
+  angle_reps: null
+
+# TODO: Expand experiments to allow multiple functions to be run.
+experiments:
+  - id: psi_bar_sat_1
+    name: Psi Bar Saturation Test 1
+    description: "This experiment mirrors the usage of testPsiBarSat() from the original code, and accepts the same arguments."
+    functions:
+      # - psi_bar_saturation
+      - allGraphsFromExcel
+    args:
+      - []
+      # - []
+    kwargs:
+      - {}
+      # - {}
+  - id: psi_bar_sat_dim_1
+    name: Psi Bar Saturation Dim Test 1
+    description: "Example of how to use this framework to run a simple experiment."
+    functions:
+      - psi_bar_saturation_dim
+    args:
+      - []
+    kwargs: 
+      - {}
+  - id: occ_vs_loc_1
+    name: Occ vs Loc Test 1
+    description: "Example of how to use this framework to run a simple experiment."
+    functions:
+      - occ_vs_loc
+    args:
+      - []
+    kwargs:
+      - {}
+  - id: eff_vs_loc_1
+    name: Eff vs Loc Test 1
+    description: "Example of how to use this framework to run a simple experiment."
+    functions:
+      - eff_vs_loc
+    args:
+      - []
+    kwargs:
+      - {}
+  - id: eff_analysis_1
+    name: Eff Analysis Test 1
+    description: "Example of how to use this framework to run a simple experiment."
+    functions:
+      - eff_analysis
+    args:
+      - []
+    kwargs:
+      - {}
